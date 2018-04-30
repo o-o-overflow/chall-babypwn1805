@@ -1,6 +1,11 @@
 id: "babypwn1805" # this needs to be a single word, no spaces
 title: "babypwn1805" # this is the title that will show up on the scoreboard
-description: "The true baby pwner needs no information."
+description: |
+  The true baby pwner needs no information.
+
+  Except for the IP/port, that you need.
+
+  e4771e24.quals2018.oooverflow.io:31337
 public_files: [
   "./public_files/baby.c",
 ]

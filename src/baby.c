@@ -11,6 +11,7 @@ int main()
 {
 	long long index = 0;
 
+	alarm(5);
 	read(0, &index, 1024);
 	read(0, asdf+index, 8);
 	read(0, &index, 1024);
