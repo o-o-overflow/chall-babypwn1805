@@ -7,7 +7,7 @@ $DIR/pow
 cd $DIR
 
 [ -z "$ARCH" ] && ARCH=x86_64
-[ -z "$LIBC" ] && LIBC=$DIR/libs/libc6-amd64_2.27-3ubuntu1_i386.so
+[ -z "$LIBC" ] && LIBC=$DIR/libs/libc6-amd64_2.23-0ubuntu3_i386.so
 
 #export IFS='\n'
 for i in {1..1337}
@@ -19,7 +19,7 @@ do
 	#(stdbuf -o0 echo -n $a; sync; stdbuf -o0 echo -n $b; sync; stdbuf -o0 echo -n $c) | (
 	if [ "$ARCH" == "x86_64" ]
 	then
-		LD_PRELOAD=$LIBC timeout 10 $DIR/baby.$ARCH
+		timeout 10 env LD_PRELOAD=$LIBC $DIR/baby.$ARCH
 	else
 		timeout 10 qemu-$ARCH -L /usr/$ARCH-linux-* $DIR/baby.$ARCH
 	fi
