@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/bionic64"
   config.vm.network "forwarded_port", guest: 31337, host: 31337, host_ip: "127.0.0.1"
   config.vm.define "babypwn18.05"
   config.vm.provision "shell", inline: <<-SHELL
@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     cd /vagrant
     # NOTE: the flag is already in the /vagrant dir
     # TODO harden it. Check gitlab issue on this.
-    socat TCP-LISTEN:31337,reuseaddr,fork exec:"./launch.sh",stderr &
+    socat TCP-LISTEN:31337,reuseaddr,fork exec:"./launch.sh" &
     echo "Listening on 31337"
   SHELL
 end
